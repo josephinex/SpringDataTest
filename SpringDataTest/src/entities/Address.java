@@ -16,63 +16,22 @@ public class Address {
 	@Column(name = "state", length = 20)
 	private String state;
 
-	public String getCountry() {
-		return country;
+	public static Builder getBuilder(String streetAddress, String postCode, String postOffice) {
+		return new Builder(streetAddress, postCode, postOffice);
 	}
 
-	public void setCountry(String country) {
+	public void update(final String streetAddress, final String postCode, final String postOffice, final String state,
+			final String country) {
+		this.streetAddress = streetAddress;
+		this.postCode = postCode;
+		this.postOffice = postOffice;
+		this.state = state;
 		this.country = country;
 	}
 
-	public String getStreetAddress() {
-		return streetAddress;
-	}
-
-	public void setStreetAddress(String streetAddress) {
-		this.streetAddress = streetAddress;
-	}
-
-	public String getPostCode() {
-		return postCode;
-	}
-
-	public void setPostCode(String postCode) {
-		this.postCode = postCode;
-	}
-
-	public String getPostOffice() {
-		return postOffice;
-	}
-
-	public void setPostOffice(String postOffice) {
-		this.postOffice = postOffice;
-	}
-
-	public String getState() {
-		return state;
-	}
-
-	public void setState(String state) {
-		this.state = state;
-	}
-	
-	public static Builder getBuilder(String streetAddress, String
-			postCode, String postOffice) {
-			return new Builder(streetAddress, postCode, postOffice);
-			}
-	
-	public void update(final String streetAddress, final String postCode,
-			final String postOffice, final String state, final String country) {
-			this.streetAddress = streetAddress;
-			this.postCode = postCode;
-			this.postOffice = postOffice;
-			this.state = state;
-			this.country = country;
-			}
-
-	
 	/**
 	 * Static inner class Builder
+	 * 
 	 * @author tania
 	 *
 	 */
@@ -101,8 +60,5 @@ public class Address {
 			return built;
 		}
 	}
-	
-	
-
 
 }
