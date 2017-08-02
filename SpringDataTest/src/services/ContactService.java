@@ -16,4 +16,6 @@ public interface ContactService {
 	public Contact findById(Long id) throws NotFoundException;
 
 	public Contact update(ContactDTO updated) throws NotFoundException;
+
+	public List<Contact> search(String searchTerm);
 }
