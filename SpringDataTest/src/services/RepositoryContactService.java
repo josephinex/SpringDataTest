@@ -71,13 +71,11 @@ public class RepositoryContactService implements ContactService {
 		return found;
 
 	}
-	
+
 	@Transactional(readOnly = true)
 	@Override
 	public List<Contact> search(String searchTerm) {
-	return repository.findByFirstNameStartingWithOrLastNameStartingWith(searchTerm, searchTerm);
+		return repository.findByFirstNameStartingWithOrLastNameStartingWith(searchTerm, searchTerm);
 	}
-
-
 
 }
