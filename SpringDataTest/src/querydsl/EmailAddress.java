@@ -1,5 +1,8 @@
-package Querydsl;
+package querydsl;
 
+import javax.persistence.Entity;
+
+@Entity
 public class EmailAddress {
 	private String firstName;
 	private String lastName;

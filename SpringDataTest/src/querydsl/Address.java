@@ -1,5 +1,9 @@
-package Querydsl;
+package querydsl;
 
+
+import com.mysema.query.annotations.QueryEntity;
+
+@QueryEntity
 public class Address {
 	private String city;
 	private String country;
