@@ -8,6 +8,10 @@ public class EmailAddress {
 	private String lastName;
 	private String emailAddress;
 
+	public EmailAddress(String string) {
+		this.emailAddress = string;
+	}
+
 	public String getFirstName() {
 		return firstName;
 	}
