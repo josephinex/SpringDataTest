@@ -27,14 +27,12 @@ public class Order extends AbstractEntity {
 	
 	
 	@SuppressWarnings("deprecation")
-	public Order(Customer customer, Address shippingAddress, Address billingAddress) {
+	public Order(Customer customer, Address shippingAddress, Address billingAddress) throws CloneNotSupportedException {
 		Assert.notNull(customer);
 			Assert.notNull(shippingAddress);
 			this.customer = customer;
-			this.shippingAddress = shippingAddress.getCopy();
+			this.shippingAddress = new Address(shippingAddress);
 			this.billingAddress = billingAddress == null ? null :
-			billingAddress.getCopy();
+				new Address(billingAddress);
 			}
-}
-
 }
