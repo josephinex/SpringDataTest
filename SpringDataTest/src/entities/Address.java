@@ -1,64 +1,17 @@
 package entities;
 
-import javax.persistence.Column;
-import javax.persistence.Embeddable;
+import javax.persistence.Entity;
 
-@Embeddable
-public class Address {
-	@Column(name = "country", length = 20)
-	private String country;
-	@Column(name = "street_address", length = 150)
-	private String streetAddress;
-	@Column(name = "post_code", length = 10)
-	private String postCode;
-	@Column(name = "post_office", length = 40)
-	private String postOffice;
-	@Column(name = "state", length = 20)
-	private String state;
-
-	public static Builder getBuilder(String streetAddress, String postCode, String postOffice) {
-		return new Builder(streetAddress, postCode, postOffice);
-	}
-
-	public void update(final String streetAddress, final String postCode, final String postOffice, final String state,
-			final String country) {
-		this.streetAddress = streetAddress;
-		this.postCode = postCode;
-		this.postOffice = postOffice;
-		this.state = state;
-		this.country = country;
-	}
-
-	/**
-	 * Static inner class Builder
-	 * 
-	 * @author tania
-	 *
-	 */
-
-	public static class Builder {
-		private Address built;
-
-		public Builder(String streetAddress, String postCode, String postOffice) {
-			built = new Address();
-			built.streetAddress = streetAddress;
-			built.postCode = postCode;
-			built.postOffice = postOffice;
-		}
-
-		public Builder country(String country) {
-			built.country = country;
-			return this;
-		}
-
-		public Builder state(String state) {
-			built.state = state;
-			return this;
-		}
-
-		public Address build() {
-			return built;
-		}
+@Entity
+public class Address extends AbstractEntity {
+	private String street, city, country;
+	
+	public Address() {}
+	
+	public Address (Address addr) {
+		this.street = addr.street;
+		this.city = addr.city;
+		this.country = addr.country;
 	}
 
 }
